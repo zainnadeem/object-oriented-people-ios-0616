@@ -22,6 +22,7 @@ describe(@"Person", ^{
     
     beforeAll(^{
         joe = [[Person alloc] init];
+        jessica = [[Person alloc] init];
         veronica = [[Person alloc] init];
     });
     
@@ -108,7 +109,7 @@ describe(@"Person", ^{
             avi = [[Person alloc] init];
             adam = [[Person alloc] init];
             
-             friends = @[chris, al, avi, adam];
+            friends = @[chris, al, avi, adam];
         });
         
         it(@"should add an array of Person friends to a Person's friends array", ^{
