@@ -10,4 +10,31 @@
 
 @implementation Person
 
+-(void)grow
+{
+    CGFloat randomNumber = (arc4random()% 2)/2.0f + 0.05f;
+
+//    self.height = [NSNumber numberWithFloat:];
+}
+
+- (void)addFriends:(NSArray *)friends;
+{
+    
+}
+
+- (NSString *)generatePartyList;
+{
+    return @"";
+}
+
+- (BOOL)removeFriend:(Person *)friend;
+{
+    return YES;
+}
+
+- (NSArray *)removeFriends:(NSArray *)friends;
+{
+    return @[];
+}
+
 @end
