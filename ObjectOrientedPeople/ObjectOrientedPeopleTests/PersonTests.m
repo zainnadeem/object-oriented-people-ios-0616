@@ -210,7 +210,7 @@ describe(@"Person", ^{
         });
     });
     
-    it(@"should return an array ", ^{
+    it(@"should return an array of found friends ", ^{
         
     });
     

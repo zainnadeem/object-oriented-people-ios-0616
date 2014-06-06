@@ -72,8 +72,8 @@ ex.
 #### Methods
   1. ```- (NSNumber *)grow;```
     * Based on age/gender, grow a random amount of inches.
-    * If it's a girl with age < 11 grow between 0 and 1 inch, age >= 11 and <=15 grow .5 to 2 inches. >=15 grow 0 inches
-    * If it's a boy with age < 12 grow between 0 and 1 inch, age >=12 and <=16 grow .5-3.5 inches. >=16 grow 0 inches
+    * If it's a girl with age < 11 grow between 0 and 1 inch, age >= 11 and <=15 grow .5 to 2 inches. >15 grow 0 inches
+    * If it's a boy with age < 12 grow between 0 and 1 inch, age >=12 and <=16 grow .5-3.5 inches. >16 grow 0 inches
   2. ```- (void)addFriends:(NSArray *)friends;```
     * Add an array of `Person` friends to this friend
   3. ```- (NSString *)generatePartyList;```
@@ -83,7 +83,7 @@ ex.
     * Return `YES` or `NO` if they were found
   5. ```- (NSArray *)removeFriends: (NSArray *)friends;```
     * Remove any those friends from the friends list
-    * Return an array of `BOOL`s with a `YES` or `NO` for each friend if it was removed or not
+    * Return an array of friends who were found and removed
 
 #### Testing your Methods 
 
