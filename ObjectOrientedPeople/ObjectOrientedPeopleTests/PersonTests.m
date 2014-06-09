@@ -18,11 +18,11 @@ describe(@"Person", ^{
     
     __block Person *joe;
     __block Person *jessica;
-    __block Person *veronica;
+  
     
     beforeAll(^{
         joe = [[Person alloc] init];
-        veronica = [[Person alloc] init];
+        jessica = [[Person alloc] init];
     });
     
     beforeEach(^{
@@ -35,9 +35,11 @@ describe(@"Person", ^{
             
             joe.height = @60;
             joe.name = @"Joe";
+            joe.isFemale = NO;
             
             jessica.height = @32;
             jessica.name = @"Jessica";
+            jessica.isFemale = YES;
             
         });
         it(@"should grow a random amount between 0 and 1 inch if person is a girl less than 11 years old ", ^{
@@ -147,6 +149,12 @@ describe(@"Person", ^{
             avi = [[Person alloc] init];
             adam = [[Person alloc] init];
             
+            eric.name = @"eric";
+            chris.name = @"chris";
+            al.name = @"al";
+            avi.name = @"avi";
+            adam.name = @"adam"; 
+            
             friends = @[chris, al, avi, adam];
             eric.friends = [NSMutableArray arrayWithArray:friends];
             partyList = [eric generatePartyList];
@@ -157,7 +165,7 @@ describe(@"Person", ^{
             expect(partyList).toNot.beNil();
         });
         it(@"should print a list of friends seperated by commas", ^{
-            expect(partyList).to.equal(@"eric, chris, al, avi, adam");
+            expect(partyList).to.equal(@"chris, al, avi, adam");
         });
         
     });
