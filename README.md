@@ -117,6 +117,4 @@ Here is a simple way to get a random double between 10 and 20
 
 Check out the documentation on NSMutableArray (Help -> Documentation and API Refrences).  NSMutableArray has some great methods ie. addObject, addObjectsFromArray, removeObject, removeObjectsFromArray 
 
-## Extra Credit
-  1. Write a method that generates an `ABPerson` for this person.
 
