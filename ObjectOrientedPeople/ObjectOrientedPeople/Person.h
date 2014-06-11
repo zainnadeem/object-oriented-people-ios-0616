@@ -16,7 +16,7 @@
 @property (nonatomic) BOOL isFemale;
 @property (nonatomic) NSMutableArray *friends; 
 
-- (NSNumber *)grow;
+- (void)grow;
 - (void)addFriends:(NSArray *)friends;
 - (NSString *)generatePartyList; 
 - (BOOL)removeFriend:(Person *)friend;
