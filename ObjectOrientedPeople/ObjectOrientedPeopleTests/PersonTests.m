@@ -28,7 +28,23 @@ describe(@"Person", ^{
     beforeEach(^{
         
     });
-    
+
+    describe(@"initializers", ^{
+        it(@"should initalize height to @9 and name should be an empty string", ^{
+            expect(joe.height).to.equal(@9);
+            expect(joe.name).to.equal(@"");
+        });
+
+        it(@"should have an initalizer called initWithName:", ^{
+            expect(joe).to.respondTo(@selector(initWithName:));
+        });
+
+        it(@"should initialize with name passed in and height at @9", ^{
+            Person *chris = [[Person alloc] initWithName:@("Chris")];
+            expect(chris.name).to.equal(@"Chris");
+            expect(chris.age).to.equal(@9);
+        });
+    });
     describe(@"grow", ^{
         
         beforeEach(^{
@@ -193,39 +209,39 @@ describe(@"Person", ^{
         });
     });
     
-    describe(@"removeFriends", ^{
-        __block Person *eric, *chris, *al, *avi, *adam, *james; //shorthand way to declare mutliple vars inline
-        __block NSArray *friends, *friendsToRemove;
-        
-        beforeEach(^{
-            eric = [[Person alloc] init];
-            chris = [[Person alloc] init];
-            al = [[Person alloc] init];
-            avi = [[Person alloc] init];
-            adam = [[Person alloc] init];
-            james = [[Person alloc] init];
-            
-            friends = @[chris, al, avi, adam];
-            friendsToRemove = @[al, avi];
-            
-            eric.friends = [NSMutableArray arrayWithArray:friends];
-        });
-        
-        it(@"should return an array of removed friends", ^{
-            expect([eric removeFriends:friendsToRemove]).to.equal(friendsToRemove);
-        });
-        
-        it(@"should remove found friends from friends array", ^{
-            [eric removeFriends:friendsToRemove];
-            expect([eric.friends count]).to.equal(2);
-            expect([eric.friends containsObject:al]).to.beFalsy();
-            expect([eric.friends containsObject:avi]).to.beFalsy();
-            expect([eric.friends containsObject:chris]).to.beTruthy();
-            expect([eric.friends containsObject:adam]).to.beTruthy(); 
-        });
-        
-    });
-    
+//    describe(@"removeFriends", ^{
+//        __block Person *eric, *chris, *al, *avi, *adam, *james; //shorthand way to declare mutliple vars inline
+//        __block NSArray *friends, *friendsToRemove;
+//        
+//        beforeEach(^{
+//            eric = [[Person alloc] init];
+//            chris = [[Person alloc] init];
+//            al = [[Person alloc] init];
+//            avi = [[Person alloc] init];
+//            adam = [[Person alloc] init];
+//            james = [[Person alloc] init];
+//            
+//            friends = @[chris, al, avi, adam];
+//            friendsToRemove = @[al, avi];
+//            
+//            eric.friends = [NSMutableArray arrayWithArray:friends];
+//        });
+//        
+//        it(@"should return an array of removed friends", ^{
+//            expect([eric removeFriends:friendsToRemove]).to.equal(friendsToRemove);
+//        });
+//        
+//        it(@"should remove found friends from friends array", ^{
+//            [eric removeFriends:friendsToRemove];
+//            expect([eric.friends count]).to.equal(2);
+//            expect([eric.friends containsObject:al]).to.beFalsy();
+//            expect([eric.friends containsObject:avi]).to.beFalsy();
+//            expect([eric.friends containsObject:chris]).to.beTruthy();
+//            expect([eric.friends containsObject:adam]).to.beTruthy(); 
+//        });
+//        
+//    });
+
     
     
 });
