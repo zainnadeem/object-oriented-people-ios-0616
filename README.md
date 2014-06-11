@@ -117,6 +117,7 @@ Feel free to play with your new class outside of the tests in the AppDelegate. H
 
 Here is a helper method for random floats 
 
+```objc
 #define ARC4RANDOM_MAX 0x100000000
 - (CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange
 {
@@ -124,6 +125,7 @@ Here is a helper method for random floats
     * (maxRange - minRange)
     + minRange;
 }
+```
 
 Check out the documentation on NSMutableArray (Help -> Documentation and API Refrences).  NSMutableArray has some great methods ie. addObject, addObjectsFromArray, removeObject, removeObjectsFromArray 
 
