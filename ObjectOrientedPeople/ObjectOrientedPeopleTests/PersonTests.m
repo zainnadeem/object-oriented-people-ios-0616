@@ -5,15 +5,15 @@
 //  Created by Al Tyus on 6/6/14.
 //  Copyright (c) 2014 al-tyus.com. All rights reserved.
 //
- 
+
 #import "Specta.h"
 #define EXP_SHORTHAND
 #import <Expecta.h>
 #import "AppDelegate.h"
 #import "Person.h"
- 
+
 SpecBegin(Person)
- 
+
 describe(@"Person", ^{
     
     __block Person *joe;
@@ -27,6 +27,23 @@ describe(@"Person", ^{
     
     beforeEach(^{
         
+    });
+    
+    describe(@"initializers", ^{
+        it(@"should initalize height to @9 and name should be an empty string", ^{
+            expect(joe.height).to.equal(@9);
+            expect(joe.name).to.equal(@"");
+        });
+
+        it(@"should have an initalizer called initWithName:", ^{
+            expect(joe).to.respondTo(@selector(initWithName:));
+        });
+
+        it(@"should initialize with name passed in and height at @9", ^{
+            Person *chris = [[Person alloc] initWithName:@("Chris")];
+            expect(chris.name).to.equal(@"Chris");
+            expect(chris.height).to.equal(@9);
+        });
     });
     
     describe(@"grow", ^{
@@ -129,7 +146,7 @@ describe(@"Person", ^{
             expect([eric.friends containsObject:al]).to.beTruthy();
             expect([eric.friends containsObject:avi]).to.beTruthy();
             expect([eric.friends containsObject:adam]).to.beTruthy();
- 
+
             for (Person *friend in joe.friends)
             {
                 expect(friend).to.beKindOf([Person class]);
@@ -173,7 +190,7 @@ describe(@"Person", ^{
     describe(@"removeFriend", ^{
         __block Person *eric, *chris, *al, *avi, *adam, *james; //shorthand way to declare mutliple vars inline
         __block NSArray *friends;
- 
+
         beforeEach(^{
             eric = [[Person alloc] init];
             chris = [[Person alloc] init];
@@ -237,6 +254,6 @@ describe(@"Person", ^{
     
     
 });
- 
- 
+
+
 SpecEnd
