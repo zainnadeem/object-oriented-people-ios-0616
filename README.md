@@ -50,6 +50,21 @@ But it gets better! Objective-C allows us to use dot notation to both get and se
  }
 ```
 
+Last, remember that the classes you make are just like any other class such as `NSString` or `NSNumber`. You can add them to arrays like this:
+
+```
+NSMutableArray *myArray = [[NSMutableArray alloc] init];
+Cat *myCat = [[Cat alloc] init];
+
+[myArray addObject:myCat];
+```
+
+Then we can get the cats the same way we are used to with arrays
+
+```
+Cat *retreivedCat = myArray[0];
+```
+
 #### Properties 
 Create the following properties in Person.h.  
 
@@ -75,19 +90,22 @@ ex.
     * If it's a girl with age < 11 grow between 0 and 1 inch, age >= 11 and <=15 grow .5 to 2 inches. >15 grow 0 inches
     * If it's a boy with age < 12 grow between 0 and 1 inch, age >=12 and <=16 grow .5-3.5 inches. >16 grow 0 inches
   2. ```- (void)addFriends:(NSArray *)friends;```
-    * Add an array of `Person` friends to this friend
+    * Add the elements of the passed in `NSArray` to our `friends` property.
   3. ```- (NSString *)generatePartyList;```
-    * Generate a list of friends for an upcoming party.
+    * Generate a list of friends for an upcoming party. It should look like this: `@"eric, chris, al, avi, adam"`
   4. ```- (BOOL)removeFriend: (Person *)friend;```
     * Remove that friend from the array.
-    * Return `YES` or `NO` if they were found
+    * Return `YES` or `NO` if they were found or not found
+
+##### Extra Credit
+
   5. ```- (NSArray *)removeFriends: (NSArray *)friends;```
-    * Remove any those friends from the friends list
+    * Remove the friends listed in the passed in argument from our current `friends` property.
     * Return an array of friends who were found and removed
 
-#### Testing your Methods 
+#### Playing with your methods in the AppDelegate
 
-Let's test our work from the AppDelegate.  
+Feel free to play with your new class outside of the tests in the AppDelegate. Here is a reminder how.
 
   1. Import the Person class in the AppDelegate's .m 
   2. In didFinishLaunchingWithOptions, instantiate a new Person. ie. ```Person *al = [[Person alloc] init];```  
@@ -97,22 +115,16 @@ Let's test our work from the AppDelegate.
 
 ## Hints 
 
-Here is a simple way to get a random double between 0 and 1
-
-```objc 
- double r = drand48() * 1;
-```
-
-Here is a simple way to get a random double between 0 and 10
+Here is a helper method for random floats 
 
 ```objc
- double r = drand48() * 10;
-```
-
-Here is a simple way to get a random double between 10 and 20 
-
-```objc
- double r = drand48() * 10 + 10 ;
+#define ARC4RANDOM_MAX 0x100000000
+- (CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange
+{
+    return ((float)arc4random() / ARC4RANDOM_MAX)
+    * (maxRange - minRange)
+    + minRange;
+}
 ```
 
 Check out the documentation on NSMutableArray (Help -> Documentation and API Refrences).  NSMutableArray has some great methods ie. addObject, addObjectsFromArray, removeObject, removeObjectsFromArray 
