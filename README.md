@@ -115,23 +115,15 @@ Feel free to play with your new class outside of the tests in the AppDelegate. H
 
 ## Hints 
 
-Here is a simple way to get a random double between 0 and 1
+Here is a helper method for random floats 
 
-```objc 
- double r = drand48() * 1;
-```
-
-Here is a simple way to get a random double between 0 and 10
-
-```objc
- double r = drand48() * 10;
-```
-
-Here is a simple way to get a random double between 10 and 20 
-
-```objc
- double r = drand48() * 10 + 10 ;
-```
+#define ARC4RANDOM_MAX 0x100000000
+- (CGFloat)randomFloatBetweenNumber:(CGFloat)minRange andNumber:(CGFloat)maxRange
+{
+    return ((float)arc4random() / ARC4RANDOM_MAX)
+    * (maxRange - minRange)
+    + minRange;
+}
 
 Check out the documentation on NSMutableArray (Help -> Documentation and API Refrences).  NSMutableArray has some great methods ie. addObject, addObjectsFromArray, removeObject, removeObjectsFromArray 
 
