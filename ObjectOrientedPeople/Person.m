@@ -10,6 +10,20 @@
 
 @implementation Person
 
+- (instancetype)initWithName:(NSString *)name
+{
+    self = [super init];
+    if (self) {
+        _name = name;
+        _height = @9;
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithName:@""];
+}
 
 -(void)grow
 {

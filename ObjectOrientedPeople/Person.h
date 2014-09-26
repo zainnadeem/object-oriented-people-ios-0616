@@ -14,8 +14,9 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSNumber *age;
 @property (nonatomic) BOOL isFemale;
-@property (nonatomic) NSMutableArray *friends; 
+@property (nonatomic) NSMutableArray *friends;
 
+- (instancetype)initWithName:(NSString *)name;
 - (void)grow;
 - (void)addFriends:(NSArray *)friends;
 - (NSString *)generatePartyList; 
