@@ -31,6 +31,7 @@ describe(@"Person", ^{
     
     describe(@"initializers", ^{
         it(@"should initalize height to @9 and name should be an empty string", ^{
+            joe = [[Person alloc] init];
             expect(joe.height).to.equal(@9);
             expect(joe.name).to.equal(@"");
         });
