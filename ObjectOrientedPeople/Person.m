@@ -27,8 +27,6 @@
 
 -(void)grow
 {
-    //    CGFloat randomNumber = [self randomFloatBetweenNumber:0 andNumber:1];
-    
     if (self.isFemale)
     {
         if ([self.age integerValue] < 11)
@@ -51,7 +49,7 @@
             self.height = @([self.height floatValue] + [self randomFloatBetweenNumber:.5 andNumber:3.5]);
         }
     }
-    //    self.height = [NSNumber numberWithFloat:];
+
 }
 
 #define ARC4RANDOM_MAX 0x100000000
