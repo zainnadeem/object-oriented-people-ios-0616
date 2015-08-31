@@ -4,28 +4,26 @@
 
 1. Create a new class that contains read-only properties.
 2. Write a designated initializer, default initializer, and convenience initializer to set initial values for the properties of an instance of that class.
-3. Write public methods that provide a controlled interface with the read-only properties.
+3. Write public methods that provide controlled interaction with the read-only properties.
  
 ## Instructions
-
-Fork and clone this lab. 
 
 Open the `object-oriented-people.xcworkspace` file. 
 
 ### I. Create the Class Files
 
-Create a new class called `FISPerson` that inherits from `NSObject`.
+Create a new class called `FISPerson` class that inherits from `NSObject`.
 
 #### Declare the Properties
 
 Publicly declare four properties as `readonly` properties:
 
-  * An `NSString` property called `name`,
-  * An `NSUInteger` property called `age`,
-  * An `NSMutableArray` property called `skills`, and
-  * A `BOOL` property called `qualifiedTutor`.
+  * an `NSString` called `name`,
+  * an `NSUInteger` called `ageInYears`,
+  * an `NSUInteger` called `heightInInches`, and
+  * an `NSMutableArray` called `skills`.
 
-**Top-tip:** *Remember that primitive-type properties cannot accept a retention attribute (*`strong`/`retain` *or* `weak`*).*
+**Top-tip:** *Remember that primitive-type properties cannot accept a retention attribute (*`strong` *or* `weak`*).*
 
 Insert the private `@interface` section below the `#import` statements of the `.m` implementation file:
 
@@ -52,8 +50,8 @@ Now privately redeclare all four properties as `readwrite` within the private `@
 Publicly declare the ten following methods in the `.h` header file:
 
   * `init` — the default initializer,
-  * `initWithName:age:` — a convenience initializer,
-  * `initWithName:age:skills:qualifiedTutor:` — a designated initializer,
+  * `initWithName:ageInYears:` — a convenience initializer,
+  * `initWithName:ageInYears:heightInInches:` — a designated initializer,
 
   * `celebrateBirthday` which returns an `NSString`,
 
@@ -63,35 +61,41 @@ Publicly declare the ten following methods in the `.h` header file:
   * `learnSkillObjectOrientedProgramming` which returns `void`,
   * `learnSkillInterfaceBuilder` which returns `void`, and
 
-  * `qualifyAsTutor` which returns a `BOOL`.
+  * `isQualifiedTutor` which returns a `BOOL`.
 
 #### Define Initial Methods Implementations
 
 Move to the `.m` implementation file. Utilizing autocomplete to quickly fill in the method name, initially define the methods to:
 
-For the initializers, `init`, `initWithName:age:`, and `initWithName:age:skills:qualifiedTutor:`:
+For the initializers, `init`, `initWithName:ageInYears:`, and `initWithName:ageInYears:heightInInches`:
 
 ```objc
 self = [super init];
 return self;
 ```
-For the `celebrateBirthday` and `qualifyAsTutor` methods:
+For the `celebrateBirthday` method:
 
 ```objc
 return nil;
 ```
 For the five `learnSkill...` methods, provide no implementation.
 
-Run the tests with `⌘` `U`. The build should succeed but the tests should fail. Throughout solving the rest of this lab, run the tests frequency to check your work as you compose it.
+For the `isQualifiedTutor` method:
+
+```objc
+return NO;
+```
+Run the tests with `⌘` `U`. The build should succeed but the tests should fail. Throughout solving the rest of this lab, run the tests frequently to check your work as you write it.
 
 ### II. Implement the Initializers
 
-1 — Write the implementation for the designated initializer `initWithName:age:skills:qualifiedTutor:`. Remember to follow the designated initializer format that 
+1 — Write the implementation for the designated initializer `initWithName:ageInYears:heightInInches:`. Remember to follow the designated initializer format that: 
 
   * assigns to `self` a call of `[super init]`,
   * checks `if (self) {...}`,
-  * sets each of the four properties' instance variables to the associated argument passed into the initializer, and
-  * return `self`:
+  * sets the three properties' instance variables to the associated argument passed into the initializer,
+  * sets the `skills` array to an empty `NSMutableArray`, and
+  * returns `self`:
 
 ```objc
 // designated initializer
@@ -105,9 +109,9 @@ Run the tests with `⌘` `U`. The build should succeed but the tests should fail
 }
 ```
 
-2 — Override the default initializer `init`. Remember that this method should:
+2 — Override the default initializer `init` so that it call the designated initializer with default arguments that are representations of your own name (i.e. `@"Mark"`) age (i.e. `29`) and height (i.e. `71`)—now can brag being a (data) model! Remember that this method should:
 
-  * assign to `self` a call of the designated initializer upon `self`, passing in default values to each of the designated initializer's arguments, and
+  * assign to `self` a call of the designated initializer upon `self`, passing in the desired default values as arguments, and
   * return `self`:
 
 ```objc
@@ -118,11 +122,11 @@ Run the tests with `⌘` `U`. The build should succeed but the tests should fail
 }
 ```
 
-**Top-tip:** *The* `NSMutableArray` *ivar should be initialized to an empty* `NSMutableArray` *using* `[[NSMutableArray alloc] init];
+**Top-tip:** *The* `NSMutableArray` *ivar should be initialized to an empty* `NSMutableArray` *using* `[[NSMutableArray alloc] init];`
 
-3 — Write the implementation for the convenience initializer `initWithName:age:`. Remember that this method should:
+3 — Write the implementation for the convenience initializer `initWithName:ageInYears:`. Remember that this method should:
 
-  * assign to `self` a call of the designated initializer upon `self`, passing in the arguments for `name` and `age` directly into the designated initializer, and passing in default values for `skills` and `qualifiedTutor` into the designated initializer, and
+  * assign to `self` a call of the designated initializer upon `self`, passing in the arguments for `name` and `ageInYears` directly into the designated initializer, and passing in a default value for `heightInInches` that is reasonable (i.e. `67`), and
   * return `self`.
 
 ```objc
@@ -154,17 +158,13 @@ Run the tests with `⌘` `U`. The build should succeed but the tests should fail
 
 2 — Write the method implementation for `celebrateBirthday` to:
 
-  * increment the `age` property by one:
-    * `self.age++;`
-  * capture the return of calling `ordinalForInteger:` with the `self.age` property submitted as the argument:
-    * `NSString *ordinal = [self ordinalForInteger:self.age];`
-  * use the `stringWithFormat:` class method on `NSString` to create a formatted string that will read `HAPPY 30TH BIRTHDAY, MARK!!!` when an instance of `FISPerson` with the `name` property set to `@"Mark"` and the `age` property set to `29` performs the `celebrateBirthday` method; capture this formatted string into a new string object.
-  * use `NSLog()` to print the birthday message to the console, and
+  * increment the `ageInYears` property by one:
+  * capture the return of calling `ordinalForInteger:` with the `self.ageInYears` property submitted as the argument:
+  * use the `stringWithFormat:` class method on `NSString` to create a formatted string that will read `HAPPY 30TH BIRTHDAY, MARK!!!` when an instance of `FISPerson` with the `name` property set to `@"Mark"` and the `ageInYears` property set to `29` performs the `celebrateBirthday` method; capture this formatted string into a new string object.
+  * use an `NSLog()` to print the birthday message to the console, and
   * finally, `return` the formatted string containing the birthday message so the test can verify it.
 
 ### IV. Implement the `learnSkill...` Methods
-
-**Note:** *The strings in these method must be entered exactly in order for the tests to pass. Pay attention to capitalization and hyphenation.*
 
 1 — Write the method implementation for `learnSkillBash` to check whether the `self.skills` array already contains the string `@"bash"`, and if not, to add it.
 
@@ -176,9 +176,11 @@ Run the tests with `⌘` `U`. The build should succeed but the tests should fail
 
 5 — Write the method implementation for `learnSkillInterfaceBuilder` to check whether the `self.skills` array already contains the string `@"Interface Builder"`, and if not, to add it.
 
-### V. Implement the `qualifyAsTutor` Method
+### V. Implement the `isQualifiedTutor` Method
 
-Write the method implementation for the `qualifyAsTutor` method. It should check whether there are *at least* four elements in the `self.skills` array.
+Write the method implementation for the `isQualifiedTutor` method. It should check whether there are *at least* four elements in the `self.skills` array and:
 
-  * if so, it should toggle the `qualifiedTutor` property to `YES` *and* return `YES`,
-  * if NOT, it should make no change to the `qualifiedTutor` property and return `NO`.
+  * if so, it should return `YES`, but
+  * if NOT, it should return `NO`.
+
+**Advanced:** *Ideally this information would be saved in a readonly property with an overridden getter method.*

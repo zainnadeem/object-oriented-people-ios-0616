@@ -10,9 +10,6 @@ SpecBegin(FISPerson)
 
 describe(@"FISPerson", ^{
     
-    __block NSMutableArray *allSkills;
-    __block NSMutableArray *marksSkills;
-    
     __block FISPerson *joe;
     __block FISPerson *tim;
     __block FISPerson *tom;
@@ -21,87 +18,67 @@ describe(@"FISPerson", ^{
     __block FISPerson *you;
     
     beforeEach(^{
-        allSkills = [ @[ @"bash",
-                         @"Xcode",
-                         @"Objective-C",
-                         @"Object-Oriented Programming",
-                         @"Interface Builder" ]
-                     mutableCopy ];
-        
-        marksSkills = [ @[ @"bash",
-                           @"Xcode",
-                           @"Objective-C" ]
-                       mutableCopy ];
         
         joe = [[FISPerson alloc] initWithName:@"Joe"
-                                          age:25
-                                       skills:allSkills
-                               qualifiedTutor:YES       ];
-        tim = [[FISPerson alloc] initWithName:@"Tim"
-                                          age:9999
-                                       skills:allSkills
-                               qualifiedTutor:YES       ];
+                                   ageInYears:25
+                               heightInInches:74      ];
         
         mark = [[FISPerson alloc] initWithName:@"Mark"
-                                           age:29
-                                        skills:marksSkills
-                                qualifiedTutor:NO       ];
+                                    ageInYears:29
+                                heightInInches:71     ];
         
+        
+        tim = [[FISPerson alloc] initWithName:@"Tim"
+                                   ageInYears:9999    ];
         tom = [[FISPerson alloc] initWithName:@"Tom"
-                                          age:24        ];
+                                   ageInYears:24      ];
         jim = [[FISPerson alloc] initWithName:@"Jim"
-                                          age:30        ];
-        
+                                   ageInYears:30      ];
+    
         you = [[FISPerson alloc] init];
     });
         
     describe(@"default initializer", ^{
         it(@"should set all properties to default values", ^{
             expect(you.name).toNot.equal(@"");
-            expect(you.age).toNot.equal(0);
-            expect(you.age).to.beLessThan(120);
-            expect(you.skills).to.equal([NSMutableArray new]);
-            expect(you.qualifiedTutor).to.beFalsy();
+            expect(you.ageInYears).toNot.equal(0);
+            expect(you.ageInYears).to.beLessThan(120);
+            expect(you.skills).to.equal([[NSMutableArray alloc] init]);
         });
     });
     
     describe(@"convenience initializer", ^{
-        it(@"should set name and age to argument values and set skills and instructor to defaults", ^{
+        it(@"should set name and ageInYears to argument values and set heightInInches, skills, to defaults", ^{
             expect(tom.name).to.equal(@"Tom");
-            expect(tom.age).to.equal(24);
-            expect(tom.skills).to.equal([NSMutableArray new]);
-            expect(tom.qualifiedTutor).to.beFalsy();
+            expect(tom.ageInYears).to.equal(24);
+            expect(tom.heightInInches).toNot.equal(0);
+            expect(tom.skills).to.equal([[NSMutableArray alloc] init]);
             
             expect(jim.name).to.equal(@"Jim");
-            expect(jim.age).to.equal(30);
-            expect(jim.skills).to.equal([NSMutableArray new]);
-            expect(jim.qualifiedTutor).to.beFalsy();
+            expect(jim.ageInYears).to.equal(30);
+            expect(jim.heightInInches).toNot.equal(0);
+            expect(jim.skills).to.equal([[NSMutableArray alloc] init]);
         });
     });
     
     describe(@"designated initializer", ^{
-        it(@"should set all properties to argument values", ^{
+        it(@"should set name, ageInYears, and heightInInches to argument values and skills to default", ^{
             expect(joe.name).to.equal(@"Joe");
-            expect(joe.age).to.equal(25);
-            expect(joe.skills).to.equal(allSkills);
-            expect(joe.qualifiedTutor).to.beTruthy();
-            
-            expect(tim.name).to.equal(@"Tim");
-            expect(tim.age).to.equal(9999);
-            expect(tim.skills).to.equal(allSkills);
-            expect(tim.qualifiedTutor).to.beTruthy();
+            expect(joe.ageInYears).to.equal(25);
+            expect(joe.heightInInches).to.equal(74);
+            expect(joe.skills).to.equal([[NSMutableArray alloc] init]);
             
             expect(mark.name).to.equal(@"Mark");
-            expect(mark.age).to.equal(29);
-            expect(mark.skills).to.equal(marksSkills);
-            expect(mark.qualifiedTutor).to.beFalsy();
+            expect(mark.ageInYears).to.equal(29);
+            expect(mark.heightInInches).to.equal(71);
+            expect(mark.skills).to.equal([[NSMutableArray alloc] init]);
         });
     });
 
     describe(@"celebrateBirthday", ^{
         it(@"should increment the person's age property by one", ^{
             [mark celebrateBirthday];
-            expect(mark.age).to.equal(30);
+            expect(mark.ageInYears).to.equal(30);
         });
         
         it(@"should return a string containing a happy birthday message for Mark", ^{
@@ -122,8 +99,10 @@ describe(@"FISPerson", ^{
         });
         
         it(@"should NOT add 'bash' to skills if ALREADY known", ^{
+            [tim learnSkillBash];
             NSUInteger skillCount = tim.skills.count;
             [tim learnSkillBash];
+            
             expect(tim.skills.count).to.equal(skillCount);
         });
     });
@@ -135,8 +114,10 @@ describe(@"FISPerson", ^{
         });
         
         it(@"should NOT add 'Xcode' to skills if ALREADY known", ^{
+            [tim learnSkillXcode];
             NSUInteger skillCount = tim.skills.count;
             [tim learnSkillXcode];
+            
             expect(tim.skills.count).to.equal(skillCount);
         });
     });
@@ -148,8 +129,10 @@ describe(@"FISPerson", ^{
         });
         
         it(@"should NOT add 'Objective-C' to skills if ALREADY known", ^{
+            [tim learnSkillObjectiveC];
             NSUInteger skillCount = tim.skills.count;
             [tim learnSkillObjectiveC];
+            
             expect(tim.skills.count).to.equal(skillCount);
         });
     });
@@ -161,8 +144,10 @@ describe(@"FISPerson", ^{
         });
         
         it(@"should NOT add 'Object-Oriented Programming' to skills if ALREADY known", ^{
+            [tim learnSkillObjectOrientedProgramming];
             NSUInteger skillCount = tim.skills.count;
             [tim learnSkillObjectOrientedProgramming];
+            
             expect(tim.skills.count).to.equal(skillCount);
         });
     });
@@ -174,64 +159,53 @@ describe(@"FISPerson", ^{
         });
         
         it(@"should NOT add 'Interface Builder' to skills if ALREADY known", ^{
+            [tim learnSkillInterfaceBuilder];
             NSUInteger skillCount = tim.skills.count;
             [tim learnSkillInterfaceBuilder];
+            
             expect(tim.skills.count).to.equal(skillCount);
         });
     });
 
-    describe(@"qualifyAsTutor", ^{
-        it(@"should not change the 'qualifiedTutor' property to 'YES' if less than 4 skills are known", ^{
-            [mark qualifyAsTutor];
-            expect(mark.qualifiedTutor).to.beFalsy();
-            
-            [tom qualifyAsTutor];
-            expect(tom.qualifiedTutor).to.beFalsy();
+    describe(@"isQualifiedTutor", ^{
+        it(@"should return 'NO' if zero skills are known", ^{
+            expect(mark.isQualifiedTutor).to.beFalsy();
         });
         
-        it(@"should change the 'qualifiedTutor' property to 'YES' if 4 or more skills are known" , ^{
-            [mark learnSkillObjectOrientedProgramming];
-            [mark qualifyAsTutor];
-            expect(mark.qualifiedTutor).to.beTruthy();
+        it(@"should return 'NO' if only 3 skills are known" , ^{
+            [mark learnSkillBash];
+            [mark learnSkillXcode];
+            [mark learnSkillObjectiveC];
             
+            expect(mark.isQualifiedTutor).to.beFalsy();
+        });
+        
+        it(@"should return 'YES' if 4 skills are known" , ^{
+            [jim learnSkillBash];
+            [jim learnSkillXcode];
+            [jim learnSkillObjectiveC];
+            [jim learnSkillObjectOrientedProgramming];
+            
+            expect(jim.isQualifiedTutor).to.beTruthy();
+        });
+        
+        it(@"should return 'YES' if a different 4 skills are known" , ^{
             [tom learnSkillBash];
             [tom learnSkillXcode];
             [tom learnSkillObjectiveC];
-            [tom learnSkillObjectOrientedProgramming];
             [tom learnSkillInterfaceBuilder];
-            [tom qualifyAsTutor];
-            expect(tom.qualifiedTutor).to.beTruthy();
-        });
-        
-        it(@"should NOT change the 'qualifiedTutor' property to 'NO' if it is already 'YES'", ^{
-            [joe qualifyAsTutor];
-            expect(joe.qualifiedTutor).to.beTruthy();
-        });
-        
-        it(@"should return 'YES' if the 'qualifiedTutor' property was changed from 'NO' to 'YES'", ^{
-            [mark learnSkillObjectOrientedProgramming];
-            BOOL markSuccess = [mark qualifyAsTutor];
-            expect(mark.qualifiedTutor).to.beTruthy();
-            expect(markSuccess).to.beTruthy();
             
-            [tom learnSkillBash];
-            [tom learnSkillXcode];
-            [tom learnSkillObjectiveC];
-            [tom learnSkillObjectOrientedProgramming];
-            [tom learnSkillInterfaceBuilder];
-            BOOL tomSuccess = [tom qualifyAsTutor];
-            expect(tom.qualifiedTutor).to.beTruthy();
-            expect(tomSuccess).to.beTruthy();
+            expect(tom.isQualifiedTutor).to.beTruthy();
         });
-        
-        it(@"should return 'NO' if the 'qualifiedTutor' property is 'NO'" , ^{
-            BOOL markSuccess = [mark qualifyAsTutor];
-            expect(markSuccess).to.beFalsy();
-        });
-        
-        it(@"should return 'YES' if the 'qualifiedTutor' property is already 'YES'", ^{
-            BOOL joeSuccess = [joe qualifyAsTutor];
-            expect(joeSuccess).to.beTruthy();
+
+        it(@"should return 'YES' if 5 skills are known" , ^{
+            [tim learnSkillBash];
+            [tim learnSkillXcode];
+            [tim learnSkillObjectiveC];
+            [tim learnSkillObjectOrientedProgramming];
+            [tim learnSkillInterfaceBuilder];
+
+            expect(tim.isQualifiedTutor).to.beTruthy();
         });
     });
 });

@@ -5,9 +5,9 @@
 @interface FISPerson ()
 
 @property (strong, nonatomic, readwrite) NSString *name;
-@property (nonatomic, readwrite) NSUInteger age;
+@property (nonatomic, readwrite) NSUInteger ageInYears;
+@property (nonatomic, readwrite) NSUInteger heightInInches;
 @property (strong, nonatomic, readwrite) NSMutableArray *skills;
-@property (nonatomic, readwrite) BOOL qualifiedTutor;
 
 @end
 
@@ -16,42 +16,39 @@
 // default initializer
 - (instancetype)init {
     self = [self initWithName:@"Mark"
-                          age:29
-                       skills:[[NSMutableArray alloc] init]
-               qualifiedTutor:NO];
+                   ageInYears:29
+               heightInInches:71 ];
     return self;
 }
 
 // convenience initializer
 - (instancetype)initWithName:(NSString *)name
-                         age:(NSUInteger)age {
+                  ageInYears:(NSUInteger)ageInYears {
     self = [self initWithName:name
-                          age:age
-                       skills:[[NSMutableArray alloc] init]
-               qualifiedTutor:NO];
+                   ageInYears:ageInYears
+               heightInInches:67 ];
     return self;
 }
 
 // designated initializer
 - (instancetype)initWithName:(NSString *)name
-                         age:(NSUInteger)age
-                      skills:(NSMutableArray *)skills
-              qualifiedTutor:(BOOL)qualifiedTutor {
+                  ageInYears:(NSUInteger)ageInYears
+              heightInInches:(NSUInteger)heightInInches {
     self = [super init];
     if (self) {
         _name = name;
-        _age = age;
-        _skills = skills;
-        _qualifiedTutor = qualifiedTutor;
+        _ageInYears = ageInYears;
+        _heightInInches = heightInInches;
+        _skills = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (NSString *)celebrateBirthday {
-    self.age++;
-    NSString *ordinal = [self ordinalForInteger:self.age];
+    self.ageInYears++;
+    NSString *ordinal = [self ordinalForInteger:self.ageInYears];
     
-    NSString *message = [NSString stringWithFormat:@"HAPPY %lu%@ BIRTHDAY, %@!!!", self.age, ordinal.uppercaseString, self.name.uppercaseString];
+    NSString *message = [NSString stringWithFormat:@"HAPPY %lu%@ BIRTHDAY, %@!!!", self.ageInYears, ordinal.uppercaseString, self.name.uppercaseString];
     NSLog(@"%@", message);
     
     return message;
@@ -110,9 +107,8 @@
     }
 }
 
-- (BOOL)qualifyAsTutor {
+- (BOOL)isQualifiedTutor {
     if (self.skills.count >= 4) {
-        self.qualifiedTutor = YES;
         return YES;
     } else {
         return NO;
