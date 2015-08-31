@@ -12,13 +12,15 @@
 		4402C9111941FBCC004F1ADE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402C9101941FBCC004F1ADE /* UIKit.framework */; };
 		4402C9171941FBCC004F1ADE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4402C9151941FBCC004F1ADE /* InfoPlist.strings */; };
 		4402C9191941FBCC004F1ADE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4402C9181941FBCC004F1ADE /* main.m */; };
-		4402C91D1941FBCC004F1ADE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4402C91C1941FBCC004F1ADE /* AppDelegate.m */; };
+		4402C91D1941FBCC004F1ADE /* FISAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4402C91C1941FBCC004F1ADE /* FISAppDelegate.m */; };
 		4402C91F1941FBCC004F1ADE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4402C91E1941FBCC004F1ADE /* Images.xcassets */; };
 		4402C9261941FBCC004F1ADE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402C9251941FBCC004F1ADE /* XCTest.framework */; };
 		4402C9271941FBCC004F1ADE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402C90C1941FBCC004F1ADE /* Foundation.framework */; };
 		4402C9281941FBCC004F1ADE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4402C9101941FBCC004F1ADE /* UIKit.framework */; };
 		4402C9301941FBCC004F1ADE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4402C92E1941FBCC004F1ADE /* InfoPlist.strings */; };
 		4402C9321941FBCC004F1ADE /* PersonTestsSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 4402C9311941FBCC004F1ADE /* PersonTestsSpecs.m */; };
+		4402C9321941FBCC004F1ADE /* FISPersonSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4402C9311941FBCC004F1ADE /* FISPersonSpec.m */; };
+		4402C93D1941FF80004F1ADE /* FISPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4402C93C1941FF80004F1ADE /* FISPerson.m */; };
 		BFD0779E11854AB4A2A01F80 /* libPods-ObjectOrientedPeopleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B67DE49F01DD4D2F9A24308A /* libPods-ObjectOrientedPeopleTests.a */; };
 /* End PBXBuildFile section */
 
@@ -41,14 +43,17 @@
 		4402C9161941FBCC004F1ADE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4402C9181941FBCC004F1ADE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4402C91A1941FBCC004F1ADE /* ObjectOrientedPeople-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectOrientedPeople-Prefix.pch"; sourceTree = "<group>"; };
-		4402C91B1941FBCC004F1ADE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4402C91C1941FBCC004F1ADE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4402C91B1941FBCC004F1ADE /* FISAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FISAppDelegate.h; sourceTree = "<group>"; };
+		4402C91C1941FBCC004F1ADE /* FISAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FISAppDelegate.m; sourceTree = "<group>"; };
 		4402C91E1941FBCC004F1ADE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4402C9241941FBCC004F1ADE /* ObjectOrientedPeopleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectOrientedPeopleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4402C9251941FBCC004F1ADE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4402C92D1941FBCC004F1ADE /* ObjectOrientedPeopleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjectOrientedPeopleTests-Info.plist"; sourceTree = "<group>"; };
 		4402C92F1941FBCC004F1ADE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4402C9311941FBCC004F1ADE /* PersonTestsSpecs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonTestsSpecs.m; sourceTree = "<group>"; };
+		4402C9311941FBCC004F1ADE /* FISPersonSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FISPersonSpec.m; sourceTree = "<group>"; };
+		4402C93B1941FF80004F1ADE /* FISPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISPerson.h; sourceTree = "<group>"; };
+		4402C93C1941FF80004F1ADE /* FISPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISPerson.m; sourceTree = "<group>"; };
 		B67DE49F01DD4D2F9A24308A /* libPods-ObjectOrientedPeopleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjectOrientedPeopleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C941BBA589874E0BAF7CFB1F /* Pods-ObjectOrientedPeopleTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectOrientedPeopleTests.xcconfig"; path = "Pods/Pods-ObjectOrientedPeopleTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,10 +118,12 @@
 		4402C9121941FBCC004F1ADE /* ObjectOrientedPeople */ = {
 			isa = PBXGroup;
 			children = (
-				4402C91B1941FBCC004F1ADE /* AppDelegate.h */,
-				4402C91C1941FBCC004F1ADE /* AppDelegate.m */,
-				4402C91E1941FBCC004F1ADE /* Images.xcassets */,
+				4402C91B1941FBCC004F1ADE /* FISAppDelegate.h */,
+				4402C91C1941FBCC004F1ADE /* FISAppDelegate.m */,
+				4402C93B1941FF80004F1ADE /* FISPerson.h */,
+				4402C93C1941FF80004F1ADE /* FISPerson.m */,
 				4402C9131941FBCC004F1ADE /* Supporting Files */,
+				4402C91E1941FBCC004F1ADE /* Images.xcassets */,
 			);
 			path = ObjectOrientedPeople;
 			sourceTree = "<group>";
@@ -135,7 +142,7 @@
 		4402C92B1941FBCC004F1ADE /* ObjectOrientedPeopleTests */ = {
 			isa = PBXGroup;
 			children = (
-				4402C9311941FBCC004F1ADE /* PersonTestsSpecs.m */,
+				4402C9311941FBCC004F1ADE /* FISPersonSpec.m */,
 				4402C92C1941FBCC004F1ADE /* Supporting Files */,
 			);
 			path = ObjectOrientedPeopleTests;
@@ -281,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4402C91D1941FBCC004F1ADE /* AppDelegate.m in Sources */,
+				4402C93D1941FF80004F1ADE /* FISPerson.m in Sources */,
+				4402C91D1941FBCC004F1ADE /* FISAppDelegate.m in Sources */,
 				4402C9191941FBCC004F1ADE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4402C9321941FBCC004F1ADE /* PersonTestsSpecs.m in Sources */,
+				4402C9321941FBCC004F1ADE /* FISPersonSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
