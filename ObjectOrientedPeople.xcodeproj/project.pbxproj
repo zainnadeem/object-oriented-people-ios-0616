@@ -33,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C2A04543C98CE4804ED6520 /* Pods-ObjectOrientedPeopleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectOrientedPeopleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectOrientedPeopleTests/Pods-ObjectOrientedPeopleTests.release.xcconfig"; sourceTree = "<group>"; };
+		1EAB10A183D5648A4F6C2BDB /* Pods-ObjectOrientedPeopleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectOrientedPeopleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectOrientedPeopleTests/Pods-ObjectOrientedPeopleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4402C9091941FBCC004F1ADE /* ObjectOrientedPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectOrientedPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4402C90C1941FBCC004F1ADE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4402C90E1941FBCC004F1ADE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -50,7 +52,6 @@
 		4402C92F1941FBCC004F1ADE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4402C9311941FBCC004F1ADE /* FISPersonSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FISPersonSpec.m; sourceTree = "<group>"; };
 		B67DE49F01DD4D2F9A24308A /* libPods-ObjectOrientedPeopleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjectOrientedPeopleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C941BBA589874E0BAF7CFB1F /* Pods-ObjectOrientedPeopleTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectOrientedPeopleTests.xcconfig"; path = "Pods/Pods-ObjectOrientedPeopleTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +86,7 @@
 				4402C92B1941FBCC004F1ADE /* ObjectOrientedPeopleTests */,
 				4402C90B1941FBCC004F1ADE /* Frameworks */,
 				4402C90A1941FBCC004F1ADE /* Products */,
-				C941BBA589874E0BAF7CFB1F /* Pods-ObjectOrientedPeopleTests.xcconfig */,
+				B3889AA73678B31E1DB33C51 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +149,15 @@
 				4402C92E1941FBCC004F1ADE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3889AA73678B31E1DB33C51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EAB10A183D5648A4F6C2BDB /* Pods-ObjectOrientedPeopleTests.debug.xcconfig */,
+				0C2A04543C98CE4804ED6520 /* Pods-ObjectOrientedPeopleTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +280,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-ObjectOrientedPeopleTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjectOrientedPeopleTests/Pods-ObjectOrientedPeopleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -356,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -388,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -424,7 +434,7 @@
 		};
 		4402C9391941FBCC004F1ADE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C941BBA589874E0BAF7CFB1F /* Pods-ObjectOrientedPeopleTests.xcconfig */;
+			baseConfigurationReference = 1EAB10A183D5648A4F6C2BDB /* Pods-ObjectOrientedPeopleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ObjectOrientedPeople.app/ObjectOrientedPeople";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -448,7 +458,7 @@
 		};
 		4402C93A1941FBCC004F1ADE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C941BBA589874E0BAF7CFB1F /* Pods-ObjectOrientedPeopleTests.xcconfig */;
+			baseConfigurationReference = 0C2A04543C98CE4804ED6520 /* Pods-ObjectOrientedPeopleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ObjectOrientedPeople.app/ObjectOrientedPeople";
 				FRAMEWORK_SEARCH_PATHS = (
