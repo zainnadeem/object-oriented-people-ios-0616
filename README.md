@@ -109,7 +109,7 @@ Run the tests with `⌘` `U`. The build should succeed but the tests should fail
 }
 ```
 
-2 — Override the default initializer `init` so that it call the designated initializer with default arguments that are representations of your own name (i.e. `@"Mark"`) age (i.e. `29`) and height (i.e. `71`)—now can brag being a (data) model! Remember that this method should:
+2 — Override the default initializer `init` so that it calls the designated initializer with default arguments that are representations of your own name (i.e. `@"Mark"`) age (i.e. `29`) and height (i.e. `71`)—now you can brag about being a (data) model! Remember that this method should:
 
   * assign to `self` a call of the designated initializer upon `self`, passing in the desired default values as arguments, and
   * return `self`:
