@@ -184,3 +184,4 @@ Write the method implementation for the `isQualifiedTutor` method. It should che
   * if NOT, it should return `NO`.
 
 **Advanced:** *Ideally this information would be saved in a readonly property with an overridden getter method.*
+<a href='https://learn.co/lessons/object-oriented-people' data-visibility='hidden'>View this lesson on Learn.co</a>
